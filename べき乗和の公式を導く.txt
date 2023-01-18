@@ -1,0 +1,24 @@
+# 関-ベルヌイの公式を使ってべき乗和の公式を導き,式の値を計算する
+import  sympy
+import  math
+from  fractions  import  Fraction
+
+k=7   # 求めたいべき乗和の公式の次数
+s=0
+n=sympy.Symbol("n")
+for  i in  range(0,k+1):
+      a=math.comb(k+1,i)
+      b=sympy.bernoulli(i)
+      if  i==1:
+            b=-b
+      c=n**(k+1-i)
+      d=a*b*c
+      s=s+d
+t=Fraction(1,(k+1)) 
+tt=t*s
+ttt=sympy.factor(tt)
+print(ttt)
+tttt=ttt.subs(n,10)  #n=10のときの値を求める
+
+print(tttt)
+display(ttt)   #見やすく表示
